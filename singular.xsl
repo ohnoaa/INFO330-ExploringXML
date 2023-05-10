@@ -19,13 +19,12 @@
   formatted HTML file.
   -->
 <xsl:template match="/pokedex">
-Single type pokemon: <xsl:value-of select="XPATH-QUERY-GOES-HERE" />:
-
-<xsl:apply-templates select="XPATH-QUERY-GOES-HERE" />
+Single type pokemon: <xsl:value-of select="pokemon[type]" />:
+<xsl:apply-templates select="pokemon[type[1] = * and not(type[2] = *)]" />
 </xsl:template>
 
 <xsl:template match="pokemon">
-    <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> (<xsl:value-of select="XPATH-QUERY-GOES-HERE" />): <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> | <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> |
+    <xsl:value-of select="./name" /> (<xsl:value-of select="@pokedexNumber" />): <xsl:value-of select="./@classification" /> | <xsl:value-of select="./type" /> |
 </xsl:template>
 
 <!--
