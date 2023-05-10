@@ -14,12 +14,13 @@
   in order to pull back the correct XML nodes. In some of the other stylesheets, you will
   need to write the full "apply-templates" text yourself.
   -->
+
 <xsl:template match="/pokedex">
-    <xsl:apply-templates select="XPATH-QUERY-GOES-HERE" />
+    <xsl:apply-templates select="pokemon[@generation = '1']" />
 </xsl:template>
 
 <xsl:template match="pokemon">
-    <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> (<xsl:value-of select="XPATH-QUERY-GOES-HERE" />): <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> | 
+    <xsl:value-of select="./name" /> (<xsl:value-of select="@pokedexNumber" />): <xsl:value-of select="./@classification" /> |
 </xsl:template>
 
 <!--
@@ -31,6 +32,7 @@
 
   ... where the name and the parenthesized Pokedex number are in the first column.
   -->
+
 <!--
 <xsl:template match="/pokedex">
   <html>
@@ -49,8 +51,8 @@
 
 <xsl:template match="pokemon">
     <tr>
-      <td><xsl:value-of select="XPATH-QUERY-GOES-HERE" />(<xsl:value-of select="XPATH-QUERY-GOES-HERE" />)</td>
-      <td><xsl:value-of select="XPATH-QUERY-GOES-HERE" /></td>
+      <td><xsl:value-of select="./name" />(<xsl:value-of select="@pokedexNumber" />)</td>
+      <td><xsl:value-of select="./@classification" /></td>
     </tr>
 </xsl:template>
 -->
