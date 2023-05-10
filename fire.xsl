@@ -18,14 +18,15 @@
   then update the HTML version of these rules below (and comment these out!) to see a nicely-
   formatted HTML file.
   -->
-<!-- -->
+
 <xsl:template match="/pokedex">
-    <xsl:apply-templates select="XPATH-QUERY-GOES-HERE" />
+    <xsl:apply-templates select="pokemon[type = 'fire']" />
 </xsl:template>
+
 
 <!-- Print the name (classification): types -->
 <xsl:template match="pokemon">
-    <xsl:value-of select="XPATH-QUERY-GOES-HERE" /> (<xsl:value-of select="XPATH-QUERY-GOES-HERE" />): <xsl:apply-templates select="XPATH-QUERY-GOES-HERE" /><xsl:text>
+    <xsl:value-of select="./name" /> (<xsl:value-of select="@pokedexNumber" />): <xsl:apply-templates select="./type" /><xsl:text>
 </xsl:text>
 </xsl:template>
 
